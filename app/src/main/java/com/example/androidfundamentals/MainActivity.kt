@@ -13,15 +13,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val monthsSpinner = findViewById<Spinner>(R.id.months_spinner)
-        val customList = listOf("First", "Second", "Third", "Fourth")
+        val spinner = findViewById<Spinner>(R.id.months_spinner)
+        val spinnerList = listOf("First", "Second", "Third", "Fourth")
+
+        // This adapter is in charge of changing the selected item in the item list of the spinner.
         val spinnerAdapter = ArrayAdapter<String>(
             this,
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            customList)
-        monthsSpinner.adapter = spinnerAdapter
+            spinnerList)
 
-        monthsSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        spinner.adapter = spinnerAdapter
+
+        spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
